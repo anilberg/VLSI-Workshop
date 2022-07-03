@@ -5,9 +5,6 @@
 <h3 align="center">A passionate Electronic Engineer from Turkey who is into A/D electronic system designing.</h3>
 
 - 🔭 I’m currently working on **VLSI projects**
-<p align="left">
-Thanks to <a href="https://github.com/laplaceyc">laplaceyc</a> for <a href="https://github.com/laplaceyc/VLSI_Design-Implementation" target="blank">this projects</a>.
-</p>
 
 - 🌱 I’m currently learning **VLSI, Verilog**
 
