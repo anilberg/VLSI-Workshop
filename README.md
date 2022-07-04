@@ -8,7 +8,7 @@
 
 - 🌱 I’m currently learning **VLSI, Verilog**
 
-- 📫 How to reach me **anilberk.1907@gmail.com**
+- 📫 How to reach me **anilberk.atas+vsd@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
