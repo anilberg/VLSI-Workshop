@@ -31,8 +31,6 @@ module full_adder
 					input 		B_i,
 					input			C_i,
 					//Outputs
-					//output reg	S_o,
-					//output reg	C_o
 					output	S_o,
 					output	C_o
 );
