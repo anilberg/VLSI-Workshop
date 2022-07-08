@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------
-//		Copyright 2022 Anil Berk Atas
+//		Copyright 2022 Anil Berk
 //
 //		Licensed under the Apache License, Version 2.0 (the "License");
 //   	you may not use this file except in compliance with the License.
@@ -25,14 +25,14 @@
 `timescale 10ns/1ps
 // -------------------------------------------------------------------------------
 // -------------------------- Full Adder Module ----------------------------------
-module full_adder(
-						//Inputs
-						input 		A_i,
-						input 		B_i,
-						input			C_i,
-						//Outputs
-						output reg	S_o,
-						output reg	C_o
+module full_adder
+(					//Inputs
+					input 		A_i,
+					input 		B_i,
+					input			C_i,
+					//Outputs
+					output reg	S_o,
+					output reg	C_o
 );
 
 // ------------------------ Initializing Outputs ---------------------------------
