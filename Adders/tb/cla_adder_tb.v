@@ -1,6 +1,6 @@
 `timescale 10ns/1ps
 `include "../src/cla_adder.v"
-// -------------------- Full Adder Module Testbench ------------------------------
+// -------------------- Carry Look Ahead Module Testbench ------------------------
 module cla_adder_tb();
 
 parameter WIDTH_PARAM = 32;

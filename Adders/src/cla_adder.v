@@ -18,8 +18,8 @@
 // 	module		:	Carry Look Ahead Adder Module
 // 	Description	: 	
 //
-// 	Date			:	8 JUL 2022
-// 	Version		:	1.1
+// 	Date			:	9 JUL 2022
+// 	Version		:	1.2
 // -------------------------------------------------------------------------------
 
 `timescale 10ns/1ps
@@ -63,47 +63,48 @@ module cla_adder
 					output  		  			Carry_o
 );
 
-//To keep carry outs for each CLA module
-wire [WIDTH-2:0] p_o, g_o, s_o, c_o;
+//To keep sum and carry outs for each CLA module
+wire [WIDTH-2:0] s_o, c_o;
 
 // ---------------------------- Submodules  --------------------------------------
-//First CLA Adder Block
-cla_submodule cla0
-(				//Inputs
-				.A_i(Number1_i[0]),
-				.B_i(Number2_i[0]),
-				.C_i(Carry_i),
-				//Outputs
-				.S_o(Result_o[0]),	//Sum
-				.C_o(c_o[0])			//Carry Out
-);
-
-//Last CLA Adder Block
-cla_submodule cla_last
-(				//Inputs
-				.A_i(Number1_i[WIDTH-1]),
-				.B_i(Number2_i[WIDTH-1]),
-				.C_i(c_o[WIDTH-2]),
-				//Outputs
-				.S_o(Result_o[WIDTH-1]),	//Sum
-				.C_o(Carry_o)					//Carry Out
-);
-
-//Generate Other CLA Adder Blocks
 generate
 	genvar j;
 	
-	for (j = 1; j < WIDTH - 1; j = j + 1) begin :cla
-		cla_submodule cla_last
-		(		//Inputs
-				.A_i(Number1_i[j]),
-				.B_i(Number2_i[j]),
-				.C_i(c_o[j-1]),
-				//Outputs
-				.S_o(Result_o[j]),	//Sum
-				.C_o(c_o[j])			//Carry Out
-		);
-
+	for (j = 0; j < WIDTH; j = j + 1) begin :cla
+		//First CLA Adder Block
+		if (j == 0) begin
+			cla_submodule cla0
+			(				//Inputs
+							.A_i(Number1_i[j]),
+							.B_i(Number2_i[j]),
+							.C_i(Carry_i),
+							//Outputs
+							.S_o(Result_o[j]),	//Sum
+							.C_o(c_o[j])			//Carry Out
+			);
+		//Last CLA Adder Block
+		end else if (j == WIDTH - 1) begin
+			cla_submodule cla_last
+			(				//Inputs
+							.A_i(Number1_i[j]),
+							.B_i(Number2_i[j]),
+							.C_i(c_o[j-1]),
+							//Outputs
+							.S_o(Result_o[j]),	//Sum
+							.C_o(Carry_o)			//Carry Out
+			);
+		//Generate Other CLA Adder Blocks
+		end else begin
+			cla_submodule cla
+			(				//Inputs
+							.A_i(Number1_i[j]),
+							.B_i(Number2_i[j]),
+							.C_i(c_o[j-1]),
+							//Outputs
+							.S_o(Result_o[j]),	//Sum
+							.C_o(c_o[j])			//Carry Out
+			);		
+		end
 	end
 endgenerate
 
