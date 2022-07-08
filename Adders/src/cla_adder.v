@@ -15,8 +15,8 @@
 //
 // 	author		: 	@anilberg
 //		project		:	VLSI Wokshop - Adders
-// 	module		:	8-bit Carry Look Ahead Adder Module
-// 	Description	: 	This is 8-bit CLA submodule
+// 	module		:	Carry Look Ahead Adder Module
+// 	Description	: 	
 //
 // 	Date			:	8 JUL 2022
 // 	Version		:	1.1
